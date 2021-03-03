@@ -3,19 +3,34 @@
     <b-container>
       <b-form>
         <b-form-group
-          id="input-group-1"
-          label="Email address:"
-          label-for="input-1"
-          description="We'll never share your email with anyone else."
+          label="Name: "
         >
           <b-form-input
-            id="input-1"
+            type="text"
+            placeholder="Enter Name"
+            required
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          label="Email address:"
+        >
+          <b-form-input
             type="email"
             placeholder="Enter email"
             required
           ></b-form-input>
         </b-form-group>
+        <b-form-group
+          label="Phone Number:"
+        >
+          <b-form-input
+            type="text"
+            placeholder="Enter Phone Number"
+            required
+          ></b-form-input>
+        </b-form-group>
       </b-form>
+      <b-button variant="success">Submit</b-button>
     </b-container>
   </div>
 </template>
