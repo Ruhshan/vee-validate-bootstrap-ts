@@ -2,37 +2,37 @@
   <div>
     <b-container>
       <b-form>
-        <b-form-group
-          label="Name: "
-        >
-          <validation-provider rules="required" v-slot="{ errors, valid }" name="Name">
+        <validation-provider v-slot="{ errors, valid }" name="Name" rules="required">
+          <b-form-group
+            label="Name: "
+          >
             <b-form-input
-              type="text"
               v-model="name"
               placeholder="Enter Name"
               required
+              type="text"
             ></b-form-input>
             <b-form-invalid-feedback :state="valid">
               <span v-for="error in errors" v-bind:key="error">{{ error }}</span>
             </b-form-invalid-feedback>
-          </validation-provider>
-        </b-form-group>
+          </b-form-group>
+        </validation-provider>
         <b-form-group
           label="Email address:"
         >
           <b-form-input
-            type="email"
             placeholder="Enter email"
             required
+            type="email"
           ></b-form-input>
         </b-form-group>
         <b-form-group
           label="Phone Number:"
         >
           <b-form-input
-            type="text"
             placeholder="Enter Phone Number"
             required
+            type="text"
           ></b-form-input>
         </b-form-group>
       </b-form>
