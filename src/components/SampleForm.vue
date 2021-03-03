@@ -5,11 +5,17 @@
         <b-form-group
           label="Name: "
         >
-          <b-form-input
-            type="text"
-            placeholder="Enter Name"
-            required
-          ></b-form-input>
+          <validation-provider rules="required" v-slot="{ errors, valid }" name="Name">
+            <b-form-input
+              type="text"
+              v-model="name"
+              placeholder="Enter Name"
+              required
+            ></b-form-input>
+            <b-form-invalid-feedback :state="valid">
+              <span v-for="error in errors" v-bind:key="error">{{ error }}</span>
+            </b-form-invalid-feedback>
+          </validation-provider>
         </b-form-group>
         <b-form-group
           label="Email address:"
@@ -39,8 +45,19 @@
 
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({ components: {} })
+import { extend, setInteractionMode, ValidationProvider } from 'vee-validate'
+import { required } from 'vee-validate/dist/rules'
+
+setInteractionMode('eager')
+
+extend('required', {
+  ...required,
+  message: '{_field_} can not be empty'
+})
+
+@Component({ components: { ValidationProvider } })
 export default class SampleForm extends Vue {
+  private name = ''
 }
 
 </script>
